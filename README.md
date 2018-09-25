@@ -16,7 +16,7 @@
 
 The project is created by Taro https://github.com/NervJS/taro
 
-Using TS seems fine.
+Using TS seems fine.
 
 The project `.tsx`  code will be transformed into `.js` and `.wxss`, the process seems pretty straightforward:
 
