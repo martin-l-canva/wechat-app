@@ -1,0 +1,12 @@
+.post {
+    flex-direction: row;
+    background: rgb(246, 246, 239);
+    height: 100vh;
+    padding: 16px;
+}
+
+.title {
+    color: rgb(255, 102, 0);
+    font-size: 48px;
+}
+

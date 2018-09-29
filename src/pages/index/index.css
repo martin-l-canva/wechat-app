@@ -1,11 +1,5 @@
 .index {
-    flex-direction:row;
-    background: rgb(246, 246, 239);
-    height: 100vh;
-}
-
-.title{
-    padding: 16px;
-    color: rgb(255, 102, 0);
-    font-size: 32px;
+  flex-direction: row;
+  background: rgb(246, 246, 239);
+  height: 100vh;
 }
