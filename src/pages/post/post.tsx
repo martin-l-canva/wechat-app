@@ -1,15 +1,16 @@
 import Taro, { Component, Config } from "@tarojs/taro";
 import { ScrollView, View, Text, Button } from "@tarojs/components";
 
-import { Post, Comment, fetchPost } from "../..//models/post";
+import { Post, Comment, fetchPost, fetchComments } from "../..//models/post";
+import { PostItem } from "../../components/post";
+import { CommentItem } from "../../components/comment";
+import "./post.css";
+type State = {
+  post: Post;
+  comments: Array<Comment>;
+};
 
-export default class PostPage extends Component<
-  {},
-  {
-    post: Post;
-    comments: Array<Comment>;
-  }
-> {
+export default class PostPage extends Component<{}, State> {
   constructor() {
     super(...arguments);
   }
@@ -17,15 +18,34 @@ export default class PostPage extends Component<
     navigationBarTitleText: ""
   };
   async componentDidMount() {
-    this.setState({ post: await fetchPost(this.$router.params.id) });
+    const post = await fetchPost(this.$router.params.id);
+    this.setState({
+      post
+    });
+    if (post.kids && post.kids.length > 0) {
+      const comments = await fetchComments(post.kids.splice(0, 10));
+      this.setState({
+        comments
+      });
+    }
   }
   render() {
+    let title: any = null;
+    if (this.state.post) {
+      title = <PostItem post={this.state.post} />;
+    } else {
+      title = <Text>Loading</Text>;
+    }
     return (
       <ScrollView className="post">
-        <Text className="title">
-          {this.state.post && this.state.post.title}
-        </Text>
-        <Text />
+        <View className="title">{title}</View>
+        <View>
+          {this.state.comments.map((comment, i) => (
+            <View key={i} className="comment">
+              <CommentItem comment={comment} />
+            </View>
+          ))}
+        </View>
       </ScrollView>
     );
   }

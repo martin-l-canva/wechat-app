@@ -1,6 +1,4 @@
 .post {
-  padding: 16px;
-  border-bottom: solid 2px #b3b5ba;
   display: flex;
   flex-direction: column;
 }
@@ -13,4 +11,5 @@
 .description {
   font-size: 24px;
   color: #b3b5ba;
+  white-space: nowrap;
 }

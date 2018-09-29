@@ -1,15 +1,15 @@
 {
-	"miniprogramRoot": "./dist",
-	"projectname": "wechat-app",
-	"description": "",
-	"appid": "touristappid",
-	"setting": {
-		"urlCheck": true,
-		"es6": false,
-		"postcss": false,
-		"minified": false,
-		"newFeature": true
-	},
-	"compileType": "miniprogram",
-	"condition": {}
+  "miniprogramRoot": "./dist",
+  "projectname": "Hacker News",
+  "description": "",
+  "appid": "wx9de392449a1e5eb5",
+  "setting": {
+    "urlCheck": false,
+    "es6": false,
+    "postcss": false,
+    "minified": false,
+    "newFeature": true
+  },
+  "compileType": "miniprogram",
+  "condition": {}
 }

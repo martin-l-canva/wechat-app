@@ -80,3 +80,5 @@ using optionel prop will calls error, avoid it ?
 ```
 onClick={onClick && onClick.bind(this, post)}
 ```
+
+`Text` has wierd warp, `nowarp` not work, use `View` instead

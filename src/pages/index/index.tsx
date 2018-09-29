@@ -19,7 +19,7 @@ export default class IndexPage extends Component<{}, State> {
   }
 
   config: Config = {
-    navigationBarTitleText: "首页"
+    navigationBarTitleText: "Hacker News"
   };
   async componentDidMount() {
     const idList = await fetchTopStrories();
@@ -27,7 +27,6 @@ export default class IndexPage extends Component<{}, State> {
     this.setState({ idList, items });
   }
   onItemClick(post: Post) {
-    console.log(post);
     Taro.navigateTo({
       url: `/pages/post/post?id=${post.id}`
     });
@@ -40,11 +39,9 @@ export default class IndexPage extends Component<{}, State> {
       content = (
         <View>
           {this.state.items.map((post, i) => (
-            <PostItem
-              key={i}
-              post={post}
-              onClick={this.onItemClick.bind(this)}
-            />
+            <View key={i} className="card">
+              <PostItem post={post} onClick={this.onItemClick.bind(this)} />
+            </View>
           ))}
         </View>
       );
