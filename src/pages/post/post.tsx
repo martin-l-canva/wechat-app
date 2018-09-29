@@ -19,13 +19,15 @@ export default class PostPage extends Component<{}, State> {
   };
   async componentDidMount() {
     const post = await fetchPost(this.$router.params.id);
-    this.setState({
-      post
-    });
     if (post.kids && post.kids.length > 0) {
-      const comments = await fetchComments(post.kids.splice(0, 10));
+      const comments = await fetchComments(post.kids.slice(0, 10));
       this.setState({
-        comments
+        comments,
+        post
+      });
+    } else {
+      this.setState({
+        post
       });
     }
   }

@@ -82,3 +82,6 @@ onClick={onClick && onClick.bind(this, post)}
 ```
 
 `Text` has wierd warp, `nowarp` not work, use `View` instead
+
+flexbox is fine
+svg is fine

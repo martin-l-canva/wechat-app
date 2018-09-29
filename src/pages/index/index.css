@@ -1,7 +1,7 @@
 .index {
   flex-direction: row;
   background: rgb(246, 246, 239);
-  min-height: 100vh;
+  height: calc(100vh - 80px);
 }
 .card {
   border-radius: 2px;
@@ -10,4 +10,11 @@
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
   padding: 16px;
   margin: 8px;
+}
+.nav {
+  position: fixed;
+  bottom: 0;
+  height: 80px;
+  width: 100%;
+  background: white;
 }

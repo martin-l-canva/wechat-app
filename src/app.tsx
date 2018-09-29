@@ -1,10 +1,9 @@
-import Taro, { Component, Config } from '@tarojs/taro'
-import Index from './pages/index'
+import Taro, { Component, Config } from "@tarojs/taro";
+import Index from "./pages/index";
 
-import './app.css'
+import "./app.css";
 
 class App extends Component {
-
   /**
    * 指定config的类型声明为: Taro.Config
    *
@@ -13,31 +12,26 @@ class App extends Component {
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
   config: Config = {
-    pages: [
-      'pages/index/index',
-      'pages/post/post'
-    ],
+    pages: ["pages/index/index", "pages/post/post"],
     window: {
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      backgroundTextStyle: "light",
+      navigationBarBackgroundColor: "#ff6600",
+      navigationBarTitleText: "WeChat",
+      navigationBarTextStyle: "white"
     }
-  }
+  };
 
-  componentDidMount () {}
+  componentDidMount() {}
 
-  componentDidShow () {}
+  componentDidShow() {}
 
-  componentDidHide () {}
+  componentDidHide() {}
 
-  componentCatchError () {}
+  componentCatchError() {}
 
-  render () {
-    return (
-      <Index />
-    )
+  render() {
+    return <Index />;
   }
 }
 
-Taro.render(<App />, document.getElementById('app'))
+Taro.render(<App />, document.getElementById("app"));
