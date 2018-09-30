@@ -1,7 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text } from "@tarojs/components";
 import * as moment from "moment";
-import { Post } from "../models/post";
+import { Post } from "../models";
 import "./post.css";
 type Props = {
   post: Post;

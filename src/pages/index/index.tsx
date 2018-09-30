@@ -2,7 +2,7 @@ import Taro, { Component, Config } from "@tarojs/taro";
 import { ScrollView, View, Text, Button } from "@tarojs/components";
 import { PostItem } from "../../components/post";
 import { Nav } from "../../components/nav";
-import { Post, fetchTopStrories, fetchPosts } from "../../models/post";
+import { Post, fetchTopStrories, fetchItems } from "../../models";
 import "./index.css";
 
 type State = {
@@ -36,7 +36,7 @@ export default class IndexPage extends Component<{}, State> {
     if (this.state.start < this.state.idList.length) {
       this.setState({
         items: this.state.items.concat(
-          await fetchPosts(
+          await fetchItems<Post>(
             this.state.idList.slice(this.state.start, this.state.start + SIZE)
           )
         ),

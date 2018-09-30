@@ -1,7 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, RichText } from "@tarojs/components";
 import * as moment from "moment";
-import { Comment } from "../models/post";
+import { Comment } from "../models";
 import "./comment.css";
 type Props = {
   comment: Comment;

@@ -1,7 +1,7 @@
 import Taro, { Component, Config } from "@tarojs/taro";
 import { ScrollView, View, Text, Button } from "@tarojs/components";
 
-import { Post, Comment, fetchPost, fetchComments } from "../..//models/post";
+import { Post, Comment, fetchItem, fetchItems } from "../../models";
 import { PostItem } from "../../components/post";
 import { CommentItem } from "../../components/comment";
 import "./post.css";
@@ -18,9 +18,9 @@ export default class PostPage extends Component<{}, State> {
     navigationBarTitleText: ""
   };
   async componentDidMount() {
-    const post = await fetchPost(this.$router.params.id);
+    const post = await fetchItem<Post>(this.$router.params.id);
     if (post.kids && post.kids.length > 0) {
-      const comments = await fetchComments(post.kids.slice(0, 10));
+      const comments = await fetchItems<Comment>(post.kids.slice(0, 10));
       this.setState({
         comments,
         post
