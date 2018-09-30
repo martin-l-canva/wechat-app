@@ -7,13 +7,19 @@ import { CommentItem } from "../../components/comment";
 import { Loading } from "../../components/loading";
 import "./post.css";
 type State = {
-  post: Post;
+  post?: Post;
   comments: Array<Comment>;
+  isLoading: boolean;
 };
 
 export default class PostPage extends Component<{}, State> {
   constructor() {
     super(...arguments);
+    this.state = {
+      post: undefined,
+      comments: [],
+      isLoading: true
+    };
   }
   config: Config = {
     navigationBarTitleText: ""
@@ -31,18 +37,22 @@ export default class PostPage extends Component<{}, State> {
   }
   async fetchMoreComments() {}
   render() {
-    let title: any = null;
-    if (this.state.post) {
-      title = <PostItem post={this.state.post} />;
+    let post: any = null;
+    if (this.state.post !== undefined) {
+      post = (
+        <View className="title">
+          <PostItem post={this.state.post} />
+        </View>
+      );
     } else {
-      title = <Loading />;
+      post = <Loading />;
     }
     return (
       <ScrollView
         className="post"
         onScrollToLower={this.fetchMoreComments.bind(this)}
       >
-        <View className="title">{title}</View>
+        {post}
         <View>
           {this.state.comments.map((comment, i) => (
             <View key={i} className="comment">

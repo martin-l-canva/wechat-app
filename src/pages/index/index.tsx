@@ -67,7 +67,7 @@ export default class IndexPage extends Component<{}, State> {
               </View>
             ))}
           </View>
-          {false && <Loading />}
+          <Loading />
         </ScrollView>
         <View className="nav">
           <Nav />

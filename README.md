@@ -115,3 +115,11 @@ destructuring in tsx is not working
 ```javascript
 <ListItem {...item} />
 ```
+
+expression in tsx is not working
+
+```javascript
+{
+  booleanVal && <MyComponet />;
+}
+```
