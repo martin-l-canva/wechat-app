@@ -1,5 +1,4 @@
-.index {
-  flex-direction: row;
+scroll-view.index {
   background: rgb(246, 246, 239);
   height: calc(100vh - 80px);
 }

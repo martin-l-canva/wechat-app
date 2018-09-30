@@ -77,7 +77,7 @@ see https://nervjs.github.io/taro/docs/best-practice.html#%E7%BB%99%E7%BB%84%E4%
 
 using optionel prop will calls error, avoid it ?
 
-```
+```javascript
 onClick={onClick && onClick.bind(this, post)}
 ```
 
@@ -85,3 +85,33 @@ onClick={onClick && onClick.bind(this, post)}
 
 flexbox is fine
 svg is fine
+
+### 2018-0930
+
+annimation seem ok
+
+`key-frame` adn `pseudo class` is ok, using normal css animation and style just replace `div` with `view`
+
+There seems be warpper component , layout import component need to be aware
+
+```javascript
+<Container>
+  <MyComponet />
+</Container>
+```
+
+to:
+
+```javascript
+<Container>
+  <Wrapper>
+    <MyComponet class="realStyle" />
+  </Wrapper>
+</Container>
+```
+
+destructuring in tsx is not working
+
+```javascript
+<ListItem {...item} />
+```

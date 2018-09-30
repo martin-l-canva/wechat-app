@@ -9,7 +9,9 @@ export type Post = {
   type: string;
   url: string;
 };
-
+export enum PostType {
+  TOPSTORIES = "topstories"
+}
 export type Comment = {
   by: string;
   id: number;

@@ -1,7 +1,9 @@
 import Taro, { Component, Config } from "@tarojs/taro";
-import { ScrollView, View, Text, Button } from "@tarojs/components";
+import { ScrollView, View } from "@tarojs/components";
 import { PostItem } from "../../components/post";
 import { Nav } from "../../components/nav";
+import { Loading } from "../../components/loading";
+
 import { Post, fetchTopStrories, fetchItems } from "../../models";
 import "./index.css";
 
@@ -51,20 +53,6 @@ export default class IndexPage extends Component<{}, State> {
   }
 
   render() {
-    let content: any = null;
-    if (this.state.items.length === 0) {
-      content = <Text>Loading</Text>;
-    } else {
-      content = (
-        <View>
-          {this.state.items.map((post, i) => (
-            <View key={i} className="card">
-              <PostItem post={post} onClick={this.onItemClick.bind(this)} />
-            </View>
-          ))}
-        </View>
-      );
-    }
     return (
       <View>
         <ScrollView
@@ -72,7 +60,14 @@ export default class IndexPage extends Component<{}, State> {
           scrollY={true}
           onScrollToLower={this.fetchMorePosts.bind(this)}
         >
-          {content}
+          <View>
+            {this.state.items.map((post, i) => (
+              <View key={i} className="card">
+                <PostItem post={post} onClick={this.onItemClick.bind(this)} />
+              </View>
+            ))}
+          </View>
+          {false && <Loading />}
         </ScrollView>
         <View className="nav">
           <Nav />
