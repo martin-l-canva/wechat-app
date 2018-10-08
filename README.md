@@ -123,3 +123,15 @@ expression in tsx is not working
   booleanVal && <MyComponet />;
 }
 ```
+
+Using variable in `render` function may causing conflict with keys in `state` (what about props?)
+Itis a konwing issue of Taro, https://github.com/NervJS/taro/issues/411
+
+```javascript
+let post: any = null; // conflict with this.state.post
+if (this.state.post !== undefined) {
+  post = <Post />;
+} else {
+  post = <Loading />;
+}
+```

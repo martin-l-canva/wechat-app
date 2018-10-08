@@ -37,22 +37,22 @@ export default class PostPage extends Component<{}, State> {
   }
   async fetchMoreComments() {}
   render() {
-    let post: any = null;
+    let body: any = null;
     if (this.state.post !== undefined) {
-      post = (
+      body = (
         <View className="title">
           <PostItem post={this.state.post} />
         </View>
       );
     } else {
-      post = <Loading />;
+      body = <Loading />;
     }
     return (
       <ScrollView
         className="post"
         onScrollToLower={this.fetchMoreComments.bind(this)}
       >
-        {post}
+        {body}
         <View>
           {this.state.comments.map((comment, i) => (
             <View key={i} className="comment">
